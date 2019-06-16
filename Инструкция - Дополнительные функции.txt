@@ -1,0 +1,61 @@
+Данные функции позволяют изменить некоторые параметры внутри модуля.
+Функции вызываются перед вызовом основной функции.
+
+Функции с параметром типа Real.
+Задание шага по оси при вычислении функций - не рекомендуется ставить очень малым:
+По умолчанию шаг 1 для обоих осей.
+Set_Step_X(new_step) - шаг по оси OX.
+Set_Step_Y(new_step) - шаг по оси OY.
+
+При изменении размеров линии и точки было отмечено, что они аппаратно-зависимы. В связи с этим может потребоваться подбор параметра.Рекомендуется начинать подбор с значения 1.
+Задание размера линии:
+Set_Axis_Line_Size(new_size) - для осей.
+Set_Marks_Line_Size(new_size) - для отметок.
+Set_Net_Line_Size(new_size) - для сетки.
+Set_Graphic_Line_Size(new_size) - для графика.
+Set_Surface_Line_Size(new_size) - для поверхности.
+
+Задание размера точки:
+Set_Axis_Point_Size(new_size) - для оси.
+Set_Graphic_Point_Size(new_size) - для графика.
+Set_Surface_Point_Size(new_size) - для поверхности.
+
+Задание толщины линии поверхности:
+Set_Surface_Width(new_size)
+
+Толщина линий букв текста(Это не размер текста):
+Set_Text_Line_Size(new_size)
+
+Размер текста:
+Set_Axis_Text_Size(new_size) - осей.
+Set_Marks_Text_Size(new_size) - засечек.
+
+Место начала отрисовки легенды по оси Х:
+Set_Legend_Start_Pos_X(posit) - posit - число от -1 до 1. 
+
+Функции с параметром текстового типа:
+Точно принимают переменную со строкой. Почему-то не принимают чистый текст статичный. На всякий случай будет перечислен конкретный ожидаемый тип.
+character(:),allocatable
+Задание текста подписи оси:
+Set_Axis_X_Text(new_text) - оси ОХ
+Set_Axis_Y_Text(new_text) - оси ОУ
+Set_Axis_Z_Text(new_text) - оси OZ
+Задание текста окошка:
+Set_Window_Text(new_text)
+
+character(len=:),dimension(:),allocatable
+Set_Legend_Text(new_text) - подписи легенды, последовательно задаёт подписи отображаемым объектам.
+Пример задания:
+allocate(character(25) :: newt(2))
+newt(1) = 'funcan'
+newt(2) = 'y=x^2'
+
+Функции с параметром типа logical
+Показать на старте легенду:
+Show_Legend(flag)
+
+Отображение сетки:
+Set_Net(flag)
+
+Показывать ли отметки на оси OZ:
+Show_Z_Marks(boolean)
